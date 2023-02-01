@@ -30,7 +30,7 @@ export const TranslationView = () => {
       }
 
       context.adapter
-        .getLocales(context.secrets)
+        .getLocales(context.secrets, context.documentId)
         .then(setLocales)
         .then(() =>
           context?.adapter.getTranslationTask(

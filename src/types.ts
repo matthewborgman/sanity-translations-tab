@@ -13,6 +13,7 @@ export type TranslationLocale = {
   localeId: string
   description: string
   enabled?: boolean
+  selected?: boolean
 }
 
 export type TranslationTaskLocaleStatus = {
@@ -37,7 +38,10 @@ export type WorkflowIdentifiers = {
 }
 
 export interface Adapter {
-  getLocales: (secrets: Secrets | null) => Promise<TranslationLocale[]>
+  getLocales: (
+    secrets: Secrets | null,
+    documentId: string
+  ) => Promise<TranslationLocale[]>
   getTranslationTask: (
     documentId: string,
     secrets: Secrets | null
